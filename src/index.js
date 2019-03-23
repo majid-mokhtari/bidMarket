@@ -1,16 +1,22 @@
-import React from 'react';
-import { render } from 'react-dom';
-import Root from './containers/Root';
-import { configureStore, history } from './store/configureStore';
-import registerServiceWorker from './registerServiceWorker';
-import 'font-awesome/css/font-awesome.min.css';
+import Header from './header'
+import Footer from './footer'
+import Projects from './projects'
+import './index.css'
 
-const store = configureStore();
+const root = document.getElementById('root')
 
-render(<Root store={store} history={history} />, document.getElementById('root'));
+const header = new Header()
+header.getHeader().then(res => {
+  root.innerHTML += res
+})
 
-if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
-  window.addEventListener('load', function() {
-    registerServiceWorker();
-  });
-}
+const projects = new Projects()
+projects.getProjects().then(res => {
+  const { gallery } = projects
+  root.appendChild(gallery)
+})
+
+const footer = new Footer()
+footer.getFooter().then(res => {
+  root.innerHTML += res
+})
