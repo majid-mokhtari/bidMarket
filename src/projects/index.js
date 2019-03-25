@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Project from './Project'
 
 class Projects {
   constructor () {
@@ -20,9 +21,9 @@ class Projects {
     var gallery = document.createElement('div')
     gallery.setAttribute('class', 'gallery')
     for (let i = 0; i < data.length; i++) {
-      let galleryItem = document.createElement('div')
-      galleryItem.setAttribute('class', 'gallery-item')
-      gallery.appendChild(galleryItem)
+      let project = new Project(data[i])
+      let card = project.buildCard()
+      gallery.appendChild(card)
     }
     this.gallery = gallery
   }
