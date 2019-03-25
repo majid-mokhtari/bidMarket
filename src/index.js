@@ -1,16 +1,8 @@
-import Header from './header'
-import Projects from './projects'
+import React from 'react'
+import ReactDOM from 'react-dom'
 import './index.css'
+import App from './app'
+import * as serviceWorker from './serviceWorker'
 
-const root = document.getElementById('root')
-
-const header = new Header()
-header.getHeader().then(res => {
-  root.innerHTML += res
-})
-
-const projects = new Projects()
-projects.getProjects().then(res => {
-  const { gallery } = projects
-  root.appendChild(gallery)
-})
+ReactDOM.render(<App />, document.getElementById('root'))
+serviceWorker.unregister()
