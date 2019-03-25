@@ -15,7 +15,7 @@ class Project {
     let expirationDate = `<div><p id="project-status-${
       this.project.id
     }">Active: ${
-      this.active ? 'yes' : 'No'
+      this.active ? 'Yes' : 'No'
     }</p><p>Expires At: ${formattedExpirDate}</p></div>`
     galleryItem.innerHTML = expirationDate
     return galleryItem

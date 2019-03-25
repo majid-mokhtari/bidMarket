@@ -1,5 +1,4 @@
 import Header from './header'
-import Footer from './footer'
 import Projects from './projects'
 import './index.css'
 
@@ -14,9 +13,4 @@ const projects = new Projects()
 projects.getProjects().then(res => {
   const { gallery } = projects
   root.appendChild(gallery)
-})
-
-const footer = new Footer()
-footer.getFooter().then(res => {
-  root.innerHTML += res
 })
