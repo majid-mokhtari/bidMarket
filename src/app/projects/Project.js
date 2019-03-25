@@ -6,15 +6,16 @@ class Project extends Component {
   constructor (props) {
     super()
     this.state = {
-      active: false
+      active: this.isActive(props.project)
     }
     setInterval(this.updateStatus.bind(this), 1000)
   }
   updateStatus () {
-    this.setState({ active: this.isActive() })
+    const { project } = this.props
+    this.setState({ active: this.isActive(project) })
   }
-  isActive () {
-    const { expirationDate } = this.props.project
+  isActive (project) {
+    const { expirationDate } = project
     var now = new Date()
     var expDate = new Date(expirationDate)
     return now.getTime() < expDate.getTime()
@@ -32,7 +33,7 @@ class Project extends Component {
         </p>
         <p>
           Expires At:{' '}
-          {moment(project.expirationDate).format('MMMM Do YYYY, h:mm:ss a')}
+          {moment(project.expirationDate).format('MMMM Do YYYY, h:mm a')}
         </p>
       </div>
     )
