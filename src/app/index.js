@@ -4,7 +4,7 @@ import './index.css'
 
 class App extends Component {
   render () {
-    return <div >TEST</div>
+    return <Projects />
   }
 }
 

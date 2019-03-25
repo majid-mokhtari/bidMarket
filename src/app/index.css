@@ -28,27 +28,31 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin: 50px;
 }
 
 .gallery-item {
   width: 400px;
   height: 100px;
+  padding: 20px;
   border: 1px solid;
   margin-bottom: 50px;
   cursor: pointer;
-  text-align: center;
+  text-align: left;
 }
 
-/* Global Header */
-.global-header {
-  padding-bottom: 2rem;
-  padding-top: 2rem;
-  text-align: center;
+.project-status-active {
+  background-color: #518b51;
+  color: white;
+  padding: 3px;
+  border-radius: 5px;
+  font-size: 15px;
 }
 
-/* Global Footer */
-.global-footer {
-  color: var(--color);
-  font-family: var(--font-serif);
-  text-align: center;
+.project-status-inactive {
+  background-color: #b94646;
+  color: white;
+  padding: 3px;
+  border-radius: 5px;
+  font-size: 15px;
 }

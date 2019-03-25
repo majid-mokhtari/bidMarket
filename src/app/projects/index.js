@@ -1,18 +1,25 @@
+import React, { Component } from 'react'
 import axios from 'axios'
 import moment from 'moment'
 import Project from './Project'
 
-class Projects {
+class Projects extends Component {
   constructor () {
-    this.projects = []
-    this.gallery = {}
+    super()
+    this.state = {
+      projects: []
+    }
+  }
+  componentWillMount () {
+    this.getProjects()
   }
   getProjects () {
+    let projects = []
     return new Promise((resolve, reject) => {
       axios.get('data/projects.json').then(res => {
         // build custom json res
         for (let i = 1; i <= 100; i++) {
-          this.projects.push(
+          projects.push(
             i % 2 === 0
               ? {
                 id: i,
@@ -24,21 +31,21 @@ class Projects {
               }
           )
         }
-        this.buildGallery(this.projects)
+        this.setState({ projects })
         resolve('done!')
       })
     })
   }
-
-  buildGallery (data) {
-    var gallery = document.createElement('div')
-    gallery.setAttribute('class', 'gallery')
-    for (let i = 0; i < data.length; i++) {
-      let project = new Project(data[i])
-      let card = project.buildCard()
-      gallery.appendChild(card)
-    }
-    this.gallery = gallery
+  buildGallery () {
+    const { projects } = this.state
+    if (!projects.length) return null
+    return projects.map((p, i) => {
+      return <Project key={i} project={p} />
+    })
+  }
+  render () {
+    const gallery = this.buildGallery()
+    return <div className='gallery'>{gallery}</div>
   }
 }
 

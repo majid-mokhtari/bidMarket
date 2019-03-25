@@ -1,38 +1,41 @@
+import React, { Component } from 'react'
 import moment from 'moment'
+import '../index.css'
 
-class Project {
-  constructor (data) {
-    this.project = data || {}
-    this.active = this.isActive()
+class Project extends Component {
+  constructor (props) {
+    super()
+    this.state = {
+      active: false
+    }
     setInterval(this.updateStatus.bind(this), 1000)
   }
-  buildCard () {
-    let galleryItem = document.createElement('div')
-    galleryItem.setAttribute('class', 'gallery-item')
-    let formattedExpirDate = moment(this.project.expirationDate).format(
-      'MMMM Do YYYY, h:mm:ss a'
-    )
-    let expirationDate = `<div><p id="project-status-${
-      this.project.id
-    }">Active: ${
-      this.active ? 'Yes' : 'No'
-    }</p><p>Expires At: ${formattedExpirDate}</p></div>`
-    galleryItem.innerHTML = expirationDate
-    return galleryItem
-  }
-  getExpirationDate () {
-    if (!this.project) return null
-    return this.project.expirationDate
-  }
   updateStatus () {
-    this.active = this.isActive()
-    let el = document.getElementById(`project-status-${this.project.id}`)
-    el.innerText = `Active: ${this.active ? 'Yes' : 'No'}`
+    this.setState({ active: this.isActive() })
   }
   isActive () {
+    const { expirationDate } = this.props.project
     var now = new Date()
-    var expirationDate = new Date(this.getExpirationDate())
-    return now.getTime() < expirationDate.getTime()
+    var expDate = new Date(expirationDate)
+    return now.getTime() < expDate.getTime()
+  }
+  render () {
+    const { active } = this.state
+    const { project } = this.props
+    return (
+      <div className='gallery-item'>
+        <p>
+          Active:{' '}
+          <span className={`project-status-${active ? 'active' : 'inactive'}`}>
+            {active ? 'Yes' : 'No'}
+          </span>
+        </p>
+        <p>
+          Expires At:{' '}
+          {moment(project.expirationDate).format('MMMM Do YYYY, h:mm:ss a')}
+        </p>
+      </div>
+    )
   }
 }
 
