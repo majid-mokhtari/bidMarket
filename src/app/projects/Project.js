@@ -72,7 +72,6 @@ class Project extends Component {
           <button
             style={{ display: editable && active ? 'block' : 'none' }}
             className='button'
-            type='submit'
             onClick={this.onSubmitBid}
           >
             {' '}
@@ -81,7 +80,6 @@ class Project extends Component {
           <button
             style={{ display: !editable && active ? 'block' : 'none' }}
             className='button'
-            type='submit'
             onClick={() => this.setState({ editable: true })}
           >
             {' '}
