@@ -18,17 +18,22 @@ class Projects extends Component {
     axios.get('data/projects.json').then(res => {
       // build custom json res
       for (let i = 1; i <= 100; i++) {
-        projects.push(
-          i % 2 === 0
-            ? {
-              id: i,
-              expirationDate: '2019-03-24 18:33:00'
-            }
-            : {
-              id: i,
-              expirationDate: moment().add(i, 'm')
-            }
-        )
+        let obj = {
+          id: i,
+          bidPrice: 100
+        }
+        if (i % 2 === 0) {
+          obj = {
+            ...obj,
+            ...{ expirationDate: '2019-03-24 18:33:00' }
+          }
+        } else {
+          obj = {
+            ...obj,
+            ...{ expirationDate: moment().add(i, 'm') }
+          }
+        }
+        projects.push(obj)
       }
       this.setState({ projects })
     })
