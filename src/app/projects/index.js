@@ -20,7 +20,7 @@ class Projects extends Component {
       for (let i = 1; i <= 100; i++) {
         let obj = {
           id: i,
-          bidPrice: 100
+          lowestBid: 100
         }
         if (i % 2 === 0) {
           obj = {
