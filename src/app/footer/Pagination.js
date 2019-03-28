@@ -1,25 +1,23 @@
-import React, { Component } from 'react'
-import { Pagination } from 'antd'
+import React, { Component } from "react";
+import { Pagination } from "antd";
 
 class Pag extends Component {
-  onShowSizeChange (current, pageSize) {
-    console.log(current, pageSize)
+  onShowSizeChange(current, pageSize) {
+    console.log(current, pageSize);
   }
-  onPageChange (next) {
-    console.log(next)
-  }
-  render () {
+
+  render() {
     return (
       <Pagination
         showSizeChanger
         onShowSizeChange={this.onShowSizeChange}
-        onChange={this.onPageChange}
+        onChange={next => this.props.changePage(next)}
         defaultCurrent={1}
         total={100}
-        className='pagination'
+        className="pagination"
       />
-    )
+    );
   }
 }
 
-export default Pag
+export default Pag;

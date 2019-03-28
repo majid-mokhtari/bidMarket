@@ -1,19 +1,26 @@
-import React, { Component } from 'react'
-import Projects from './projects'
-import Header from './header'
-import Footer from './footer'
-import './app.css'
+import React, { Component } from "react";
+import Projects from "./projects";
+import Header from "./header";
+import Footer from "./footer";
+import "./app.css";
 
 class App extends Component {
-  render () {
+  constructor() {
+    super();
+    this.state = {
+      nextPage: 1
+    };
+  }
+  render() {
+    const { nextPage } = this.state;
     return (
-      <div className='app-container'>
+      <div className="app-container">
         <Header />
-        <Projects />
-        <Footer />
+        <Projects nextPage={nextPage} />
+        <Footer changePage={nextPage => this.setState({ nextPage })} />
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;
