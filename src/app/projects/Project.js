@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import moment from 'moment'
-import '../index.css'
+import '../app.css'
 
 class Project extends Component {
   constructor (props) {
@@ -78,8 +78,7 @@ class Project extends Component {
             className='button'
             onClick={this.onSubmitBid}
           >
-            {' '}
-            Bid
+            Bid Price
           </button>
           <input
             id='bidPrice'

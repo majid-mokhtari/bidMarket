@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Projects from './projects'
 import Header from './header'
 import Footer from './footer'
-import './index.css'
+import './app.css'
 
 class App extends Component {
   render () {

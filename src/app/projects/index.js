@@ -14,9 +14,6 @@ class Projects extends Component {
     // request to server get the list
     this.getProjects()
   }
-  onShowSizeChange (current, pageSize) {
-    console.log(current, pageSize)
-  }
   getProjects () {
     let projects = []
     axios.get('data/projects.json').then(res => {
