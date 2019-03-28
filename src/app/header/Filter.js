@@ -1,41 +1,41 @@
-import React, { Component } from 'react'
-import { Input, Radio } from 'antd'
+import React, { Component } from "react";
+import { Input, Radio } from "antd";
 
-const { Search } = Input
+const { Search } = Input;
 
 class Filter extends Component {
-  constructor () {
-    super()
+  constructor() {
+    super();
     this.state = {
-      filter: 'all'
-    }
+      filter: "all"
+    };
   }
-  render () {
+  render() {
     return (
-      <div className='header'>
+      <div className="header">
         <Search
-          placeholder='Search'
-          size='large'
+          placeholder="Search"
+          size="large"
           onSearch={v => console.log(v)}
           onChange={({ target }) => console.log(target)}
-          style={{ width: '64%', marginRight: '25px' }}
+          style={{ width: "63%", marginRight: "40px" }}
         />
-        <div className='filter'>
+        <div className="filter">
           <label>Show: </label>
           <Radio.Group
-            size='large'
+            size="large"
             value={this.state.filter}
             onChange={v => this.setState({ filter: v.target.value })}
-            style={{ marginLeft: '5px' }}
+            style={{ marginLeft: "5px" }}
           >
-            <Radio.Button value='all'>All</Radio.Button>
-            <Radio.Button value='active'>Active</Radio.Button>
-            <Radio.Button value='expired'>Expired</Radio.Button>
+            <Radio.Button value="all">All</Radio.Button>
+            <Radio.Button value="active">Active</Radio.Button>
+            <Radio.Button value="expired">Expired</Radio.Button>
           </Radio.Group>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Filter
+export default Filter;
