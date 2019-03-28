@@ -18,7 +18,7 @@ class Filter extends Component {
           size="large"
           onSearch={v => console.log(v)}
           onChange={({ target }) => console.log(target)}
-          style={{ width: "63%", marginRight: "40px" }}
+          style={{ width: "66%", marginRight: "30px" }}
         />
         <div className="filter">
           <label>Show: </label>
