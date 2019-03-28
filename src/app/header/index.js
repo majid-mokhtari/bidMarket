@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import Filter from './Filter'
 
-class index extends Component {
+class Header extends Component {
   render () {
     return <Filter />
   }
 }
 
-export default index
+export default Header

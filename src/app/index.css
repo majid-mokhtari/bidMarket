@@ -43,6 +43,16 @@ header {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  box-shadow: none;
+  transition: box-shadow .5s;
+  -webkit-transition: box-shadow .5s;
+  -moz-transition: box-shadow .5s;
+  -ms-transition: box-shadow .5s;
+  -o-transition: box-shadow .5s;
+}
+
+.gallery-item:hover {
+  box-shadow: -1px 2px 5px 0px #888888
 }
 
 .gallery-item div {
