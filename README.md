@@ -1,6 +1,6 @@
 Please follow the instruction below to run the application:
 
-1. clone the repoclone the repo
+1. clone the repo
 2. cd market-place and run 'npm install'
 3. cd market-place and run 'npm start'
 
