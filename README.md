@@ -1,8 +1,8 @@
 Please follow the instruction below to run the application:
 
-clone the repo
-cd market-place and run 'npm install'
-cd market-place and run 'npm start'
+1. clone the repoclone the repo
+2. cd market-place and run 'npm install'
+3. cd market-place and run 'npm start'
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
