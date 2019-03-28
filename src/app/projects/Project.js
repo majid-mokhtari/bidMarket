@@ -18,14 +18,14 @@ class Project extends Component {
   onSubmitBid () {
     const { bidPrice } = this.state
     this.setState({ lowestBid: bidPrice })
-    // send request and save the price for current user
+    // send request and save the lowest price for current user
     // this.props.saveBidPrice()
   }
   updateStatus () {
     const { project } = this.props
     const active = this.isActive(project)
     if (active) {
-      this.updateBidPrice()
+      this.updateBidPrice() // in reality this will be handled in server
     } else {
       clearInterval(this.timer)
       // stop the timer and lock min bid price in db
@@ -59,7 +59,7 @@ class Project extends Component {
             {active ? 'Yes' : 'No'}
           </span>
         </div>
-        <div>
+        <div style={{ width: '100%' }}>
           <label>Expires At: </label>
           <span>
             {moment(project.expirationDate).format('MMMM Do YYYY, h:mm a')}
@@ -69,8 +69,15 @@ class Project extends Component {
           <label htmlFor='bidPrice'>Lowest Bid: </label>
           <span id='bidPrice'>${lowestBid}</span>
         </div>
-        <div style={{ display: active ? 'block' : 'none', height: 0 }}>
-          <button className='button' onClick={this.onSubmitBid}>
+        <div
+          style={{ width: '100%' }}
+          className={`bid-form ${!active ? 'disabled' : ''}`}
+        >
+          <button
+            disabled={!active}
+            className='button'
+            onClick={this.onSubmitBid}
+          >
             {' '}
             Bid
           </button>
@@ -78,6 +85,7 @@ class Project extends Component {
             id='bidPrice'
             onChange={e => this.setState({ bidPrice: e.target.value })}
             ref='bidPrice'
+            disabled={!active}
           />
         </div>
       </div>

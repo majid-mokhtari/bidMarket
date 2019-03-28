@@ -1,3 +1,5 @@
+@import "~antd/dist/antd.css";
+
 header {
   display: flex;
   text-align: center;
@@ -5,27 +7,46 @@ header {
   margin-bottom: 30px;
 }
 
+.app-container {
+  margin: 30px;
+}
+
+.header {
+  margin-left: 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+.pagination {
+  margin-left: 40px;
+}
+
 .gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: 50px;
+  margin: 30px 30px 0 30px;
 }
 
 .gallery-item {
   width: 400px;
-  height: 100%;
   padding: 20px;
-  border: 1px solid;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
   margin-bottom: 50px;
   cursor: pointer;
   text-align: left;
   display: flex;
-  flex-direction: column;
-  min-height: 250px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 .gallery-item div {
+  width: 50%;
   height: 50px;
 }
 
@@ -58,13 +79,18 @@ header {
 }
 
 input {
-  height: 21px;
+  height: 35px;
   border-radius: 5px;
   margin: 10px;
   font-size: 15px;
   padding: 5px;
+  outline: none;
 }
 
 label {
   font-weight: 600
+}
+
+.bid-form.disabled button{
+  background: #c5c3c3
 }

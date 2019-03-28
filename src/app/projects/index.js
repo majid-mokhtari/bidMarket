@@ -11,7 +11,11 @@ class Projects extends Component {
     }
   }
   componentWillMount () {
+    // request to server get the list
     this.getProjects()
+  }
+  onShowSizeChange (current, pageSize) {
+    console.log(current, pageSize)
   }
   getProjects () {
     let projects = []
@@ -30,12 +34,12 @@ class Projects extends Component {
         } else {
           obj = {
             ...obj,
-            ...{ expirationDate: moment().add(i, 'm') }
+            ...{ expirationDate: moment().add(i + 15, 's') }
           }
         }
         projects.push(obj)
       }
-      this.setState({ projects })
+      this.setState({ projects: projects.slice(0, 6) })
     })
   }
   buildGallery () {
@@ -47,7 +51,7 @@ class Projects extends Component {
   }
   render () {
     const gallery = this.buildGallery()
-    return <div className='gallery'>{gallery}</div>
+    return <div className='gallery'>{gallery} </div>
   }
 }
 

@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 import Projects from './projects'
+import Header from './header'
+import Footer from './footer'
 import './index.css'
 
 class App extends Component {
   render () {
-    return <Projects />
+    return (
+      <div className='app-container'>
+        <Header />
+        <Projects />
+        <Footer />
+      </div>
+    )
   }
 }
 
 export default App
-
-// const projects = new Projects()
-// projects.getProjects().then(res => {
-//   const { gallery } = projects
-//   root.appendChild(gallery)
-// })
